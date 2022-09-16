@@ -79,16 +79,17 @@ guessed = []
 def find_all(word, guess):
     return [i for i, letter in enumerate(word) if letter == guess]
 
+
 def wordGuess():
     global word
     word_guess = input("You have used all of your letter guesses please guess the full word : ")
+    word_guess.lower()
     if word_guess == word:
-        print("You WIN!")
+        print("YES the word was " + word_guess.capitalize() + " You WIN!")
         quit()
     else:
-        print("Guess Again")
+        print("No the word is not " + word_guess.capitalize() + " please try again.")
         wordGuess()
-
 
 
 while current != word and lives > 0:
@@ -99,7 +100,6 @@ while current != word and lives > 0:
 
     if guess in guessed:
         print("You have already guessed this letter, please try again.")
-
 
     guessed.append(guess)
 
@@ -125,7 +125,6 @@ while current != word and lives > 0:
         print(x)
 if current == word:
     print("Well done, you have won!")
-
 
 if __name__ == '__main__':
     print()
